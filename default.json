@@ -4,5 +4,74 @@
         "config:base",
         ":semanticCommitTypeAll(chore)",
         "github>whitesource/merge-confidence:beta"
+    ],
+    "semanticCommits": "enabled",
+    "pruneStaleBranches": true,
+    "rebaseWhen": "behind-base-branch",
+    "semanticCommitType": "chore",
+    "semanticCommitScope": "deps",
+    "automergeStrategy": "squash",
+    "unicodeEmoji": true,
+    "rangeStrategy": "pin",
+    "postUpdateOptions": [
+        "gomodTidy",
+        "gomodUpdateImportPaths"
+    ],
+    "gomod": {
+        "enabled": true,
+        "commitMessageTopic": "⬆️ golang module {{depName}}"
+    },
+    "docker": {
+        "enabled": true,
+        "commitMessageTopic": "⬆️ docker update 🐳 {{depName}}"
+    },
+    "vulnerabilityAlerts": {
+        "enabled": true,
+        "labels": [
+            "security"
+        ]
+    },
+    "npm": {
+        "commitMessageTopic": "⬆️ npm update {{depName}}",
+        "fileMatch": [
+            "(^|/)package.json$"
+        ],
+        "rollbackPrs": true,
+        "versioning": "npm"
+    },
+    "terraform": {
+        "commitMessageTopic": "⬆️ terraform update {{depName}}",
+        "enabled": true
+    },
+    "packageRules": [
+        {
+            "matchPackagePatterns": [
+                "aws-sdk"
+            ],
+            "groupName": "aws-sdk"
+        },
+        {
+            "matchPaths": [
+                "magefiles"
+            ],
+            "groupName": "mage-tooling"
+        },
+        {
+            "matchManagers": [
+                "npm"
+            ],
+            "matchDepTypes": [
+                "devDependencies"
+            ],
+            "enabled": true,
+            "groupName": "npm-devdependencies",
+            "stabilityDays": 5
+        },
+        {
+            "matchDatasources": [
+                "npm"
+            ],
+            "stabilityDays": 5
+        }
     ]
 }
