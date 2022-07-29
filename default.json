@@ -5,6 +5,7 @@
         ":semanticCommitTypeAll(chore)",
         "github>whitesource/merge-confidence:beta"
     ],
+    "labels": ["dependencies"],
     "semanticCommits": "enabled",
     "pruneStaleBranches": true,
     "rebaseWhen": "behind-base-branch",
