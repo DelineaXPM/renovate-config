@@ -5,12 +5,15 @@
         ":semanticCommitTypeAll(chore)",
         "github>whitesource/merge-confidence:beta"
     ],
-    "labels": ["dependencies"],
+    "labels": [
+        "dependencies"
+    ],
     "semanticCommits": "enabled",
     "pruneStaleBranches": true,
     "rebaseWhen": "behind-base-branch",
     "semanticCommitType": "chore",
     "semanticCommitScope": "deps",
+    "platformAutomerge": true,
     "automergeStrategy": "squash",
     "unicodeEmoji": true,
     "rangeStrategy": "pin",
