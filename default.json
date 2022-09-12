@@ -21,6 +21,7 @@
         "gomodTidy",
         "gomodUpdateImportPaths"
     ],
+    "onboardingPrTitle": "chore(deps): onboard with renovate",
     "gomod": {
         "enabled": true,
         "commitMessageTopic": "⬆️ golang module {{depName}}"
@@ -55,10 +56,18 @@
             "groupName": "aws-sdk"
         },
         {
+            "matchPackagePatterns": [
+                "github.com/sheldonhull/magetools"
+            ],
+            "groupName": "mage-tooling-magetools",
+            "automerge": true,
+            "automergeType": "branch"
+        },
+        {
             "matchPaths": [
                 "magefiles"
             ],
-            "groupName": "mage-tooling"
+            "groupName": "mage-tooling",
         },
         {
             "matchManagers": [
