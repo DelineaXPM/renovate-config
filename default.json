@@ -70,6 +70,16 @@
             "groupName": "mage-tooling",
         },
         {
+            "matchPaths": [
+                ".github"
+            ],
+            "groupName": "github-actions",
+            "automerge": true,
+            "automergeType": "branch"
+            "commitMessageTopic": "🤖 github actions {{depName}}",
+
+        },
+        {
             "matchManagers": [
                 "npm"
             ],
