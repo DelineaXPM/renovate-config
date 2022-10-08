@@ -75,7 +75,7 @@
             ],
             "groupName": "github-actions",
             "automerge": true,
-            "automergeType": "branch"
+            "automergeType": "branch",
             "commitMessageTopic": "🤖 github actions {{depName}}",
 
         },
