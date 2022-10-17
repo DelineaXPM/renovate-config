@@ -8,9 +8,6 @@
     "labels": [
         "dependencies"
     ],
-    "constraints": {
-         "go": "1.18"
-    },
     "semanticCommits": "enabled",
     "pruneStaleBranches": true,
     "rebaseWhen": "behind-base-branch",
@@ -21,7 +18,7 @@
     "unicodeEmoji": true,
     "rangeStrategy": "pin",
     "postUpdateOptions": [
-        "gomodTidy",
+        "gomodTidy1.17",
         "gomodUpdateImportPaths"
     ],
     "onboardingPrTitle": "chore(deps): onboard with renovate",
