@@ -3,7 +3,8 @@
     "extends": [
         "config:base",
         ":semanticCommitTypeAll(chore)",
-        "github>whitesource/merge-confidence:beta"
+        "github>whitesource/merge-confidence:beta",
+        "github>aquaproj/aqua-renovate-config#1.2.6"
     ],
     "labels": [
         "dependencies"
@@ -18,7 +19,7 @@
     "unicodeEmoji": true,
     "rangeStrategy": "pin",
     "postUpdateOptions": [
-        "gomodTidy1.17",
+        "gomodTidy",
         "gomodUpdateImportPaths"
     ],
     "onboardingPrTitle": "chore(deps): onboard with renovate",
@@ -95,6 +96,13 @@
                 "npm"
             ],
             "stabilityDays": 5
-        }
+        },
+        {
+            "description": "Opt-out minimum Go version updates: https://github.com/renovatebot/renovate/issues/16715",
+            "matchManagers": ["gomod"],
+            "matchDepTypes": ["golang"],
+            "enabled": false
+          }
     ]
+
 }
