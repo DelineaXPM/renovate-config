@@ -9,6 +9,7 @@
     "labels": [
         "dependencies"
     ],
+    "binarySource": "docker",
     "semanticCommits": "enabled",
     "pruneStaleBranches": true,
     "rebaseWhen": "behind-base-branch",
@@ -102,7 +103,16 @@
             "matchManagers": ["gomod"],
             "matchDepTypes": ["golang"],
             "enabled": false
-          }
+          },
+          {
+          "matchPaths": [
+              "aqua.yaml"
+          ],
+          "groupName": "aqua-packages",
+          "automerge": true,
+          "automergeType": "branch",
+          "commitMessageTopic": "🤖 aqua tooling"
+        },
     ]
 
 }
