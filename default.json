@@ -54,8 +54,7 @@
     "commitMessageTopic": "⬆️ terraform update {{depName}}",
     "enabled": true
   },
-  {
-    "major": {
+  "major": {
     "dependencyDashboardApproval": true
   },
   "packageRules": [
