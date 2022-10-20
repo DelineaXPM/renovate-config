@@ -36,6 +36,8 @@
   },
   "vulnerabilityAlerts": {
     "enabled": true,
+    "prCreation": "immediate",
+
     "labels": [
       "security"
     ]
@@ -51,6 +53,9 @@
   "terraform": {
     "commitMessageTopic": "⬆️ terraform update {{depName}}",
     "enabled": true
+  },
+  "major": {
+    "dependencyDashboardApproval": true
   },
   "packageRules": [
     {
@@ -74,7 +79,6 @@
       "groupName": "mage-tooling-magetools",
       "commitMessageTopic": "🤖 magetools {{depName}}",
       "automerge": true,
-      "automergeType": "branch",
       "matchUpdateTypes": [
         "minor",
         "patch"
@@ -126,7 +130,6 @@
       ],
       "groupName": "aqua-packages",
       "automerge": true,
-      "automergeType": "branch",
       "commitMessageTopic": "🤖 aqua tooling",
       "matchUpdateTypes": [
         "minor",
