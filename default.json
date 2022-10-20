@@ -24,7 +24,7 @@
     "gomodTidy",
     "gomodUpdateImportPaths"
   ],
-  "prCreation": "status-success",
+  "prCreation": "immediate",
   "onboardingPrTitle": "chore(deps): onboard with renovate",
   "gomod": {
     "enabled": true,
@@ -37,7 +37,6 @@
   "vulnerabilityAlerts": {
     "enabled": true,
     "prCreation": "immediate",
-
     "labels": [
       "security"
     ]
@@ -55,7 +54,13 @@
     "enabled": true
   },
   "major": {
-    "dependencyDashboardApproval": true
+    "dependencyDashboardApproval": true,
+  },
+  "minor": {
+     "automerge": true
+  },
+  "patch": {
+     "automerge": true
   },
   "packageRules": [
     {
