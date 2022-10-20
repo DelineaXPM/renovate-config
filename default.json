@@ -50,7 +50,7 @@
     "versioning": "npm"
   },
   "terraform": {
-    "commitMessageTopic": "⬆️ terraform update {{depName}}",
+    "commitMessageTopic": "☁️ terraform update {{depName}}",
     "enabled": true
   },
   "major": {
@@ -68,21 +68,26 @@
         "aws-sdk"
       ],
       "groupName": "aws-sdk",
-      "commitMessageTopic": "☁️ terraform update {{depName}}"
+      "commitMessageTopic": "☁️ aws-sdk update {{depName}}"
     },
     {
       "matchPaths": [
         "magefiles"
       ],
       "groupName": "mage-tooling",
-      "commitMessageTopic": "☁️ magefiles {{depName}}"
+      "commitMessageTopic": "🤖 mage tooling",
+      "automerge": true,
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ]
     },
     {
       "matchPackagePatterns": [
         "github.com/sheldonhull/magetools"
       ],
-      "groupName": "mage-tooling-magetools",
-      "commitMessageTopic": "🤖 magetools {{depName}}",
+      "groupName": "mage-tooling",
+      "commitMessageTopic": "🤖 mage tooling",
       "automerge": true,
       "matchUpdateTypes": [
         "minor",
