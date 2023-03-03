@@ -54,13 +54,13 @@
     "enabled": true
   },
   "major": {
-    "dependencyDashboardApproval": true,
+    "dependencyDashboardApproval": true
   },
   "minor": {
-     "automerge": true
+    "automerge": true
   },
   "patch": {
-     "automerge": true
+    "automerge": true
   },
   "packageRules": [
     {
