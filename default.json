@@ -7,9 +7,7 @@
     "github>whitesource/merge-confidence:beta",
     "github>aquaproj/aqua-renovate-config#1.2.6"
   ],
-  "labels": [
-    "dependencies"
-  ],
+  "labels": ["dependencies"],
   "binarySource": "docker",
   "semanticCommits": "enabled",
   "pruneStaleBranches": true,
@@ -20,10 +18,7 @@
   "automergeStrategy": "squash",
   "unicodeEmoji": true,
   "rangeStrategy": "pin",
-  "postUpdateOptions": [
-    "gomodTidy",
-    "gomodUpdateImportPaths"
-  ],
+  "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"],
   "prCreation": "not-pending",
   "onboardingPrTitle": "chore(deps): onboard with renovate",
   "gomod": {
@@ -37,15 +32,11 @@
   "vulnerabilityAlerts": {
     "enabled": true,
     "prCreation": "immediate",
-    "labels": [
-      "security"
-    ]
+    "labels": ["security"]
   },
   "npm": {
     "commitMessageTopic": "⬆️ npm update {{depName}}",
-    "fileMatch": [
-      "(^|/)package.json$"
-    ],
+    "fileMatch": ["(^|/)package.json$"],
     "rollbackPrs": true,
     "versioning": "npm"
   },
@@ -64,103 +55,62 @@
   },
   "packageRules": [
     {
-      "matchPackagePatterns": [
-        "aws-sdk"
-      ],
+      "matchPackagePatterns": ["aws-sdk"],
       "groupName": "aws-sdk",
       "commitMessageTopic": "☁️ aws-sdk update {{depName}}"
     },
     {
-      "matchPaths": [
-        "magefiles"
-      ],
+      "matchPaths": ["magefiles"],
       "groupName": "mage-tooling",
       "commitMessageTopic": "🤖 mage tooling",
       "automerge": true,
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
+      "matchUpdateTypes": ["minor", "patch"],
       "prPriority": -1
     },
     {
-      "matchPackagePatterns": [
-        "github.com/sheldonhull/magetools"
-      ],
+      "matchPackagePatterns": ["github.com/sheldonhull/magetools"],
       "groupName": "mage-tooling",
       "commitMessageTopic": "🤖 mage tooling",
       "automerge": true,
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
+      "matchUpdateTypes": ["minor", "patch"],
       "prPriority": -1
     },
     {
-      "matchPaths": [
-        ".github"
-      ],
+      "matchPaths": [".github"],
       "groupName": "github-actions",
       "automerge": true,
       "commitMessageTopic": "🤖 github actions {{depName}}",
-      "matchUpdateTypes": [
-        "minor",
-        "patch",
-        "digest",
-        "pin",
-        "pinDigest"
-      ],
+      "matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
       "prPriority": -1,
       "prBodyDefinitions": {
         "Package": "[{{{depName}}}](https://github.com/{{{depName}}})",
         "Change": "[`{{{displayFrom}}}` -> `{{{displayTo}}}`](https://github.com/{{{depName}}}/compare/{{{displayFrom}}}...{{{displayTo}}})"
       },
-      "prBodyColumns": [
-        "Package",
-        "Change",
-        "Type",
-        "Update"
-      ]
+      "prBodyColumns": ["Package", "Change", "Type", "Update"]
     },
     {
-      "matchManagers": [
-        "npm"
-      ],
-      "matchDepTypes": [
-        "devDependencies"
-      ],
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["devDependencies"],
       "enabled": true,
       "groupName": "npm-devdependencies",
       "stabilityDays": 5
     },
     {
-      "matchDatasources": [
-        "npm"
-      ],
+      "matchDatasources": ["npm"],
       "stabilityDays": 5
     },
     {
       "description": "Opt-out minimum Go version updates: https://github.com/renovatebot/renovate/issues/16715",
-      "matchManagers": [
-        "gomod"
-      ],
-      "matchDepTypes": [
-        "golang"
-      ],
+      "matchManagers": ["gomod"],
+      "matchDepTypes": ["golang"],
       "enabled": false
     },
     {
-      "matchPaths": [
-        "aqua.yaml",
-        "registry.yaml"
-      ],
+      "matchPaths": ["aqua.yaml", "registry.yaml"],
       "groupName": "aqua-packages",
       "automerge": true,
       "commitMessageTopic": "🤖 aqua tooling",
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
+      "matchUpdateTypes": ["minor", "patch"],
       "prPriority": -1
     }
   ]
