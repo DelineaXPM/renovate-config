@@ -80,12 +80,13 @@
       "groupName": "github-actions",
       "automerge": true,
       "commitMessageTopic": "🤖 github actions {{depName}}",
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
       "prPriority": -1,
       "prBodyDefinitions": {
         "Package": "[{{{depName}}}](https://github.com/{{{depName}}})",
         "Change": "[`{{{displayFrom}}}` -> `{{{displayTo}}}`](https://github.com/{{{depName}}}/compare/{{{displayFrom}}}...{{{displayTo}}})"
-      }
+      },
+      "prBodyColumns": ["Package", "Change", "Type", "Update"]
     },
     {
       "matchManagers": ["npm"],
