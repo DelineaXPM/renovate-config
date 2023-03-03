@@ -81,7 +81,7 @@
         "minor",
         "patch"
       ],
-      "priority": -1
+      "prPriority": -1
     },
     {
       "matchPackagePatterns": [
@@ -94,7 +94,7 @@
         "minor",
         "patch"
       ],
-      "priority": -1
+      "prPriority": -1
     },
     {
       "matchPaths": [
@@ -107,7 +107,7 @@
         "minor",
         "patch"
       ],
-      "priority": -1
+      "prPriority": -1
     },
     {
       "matchManagers": [
@@ -148,7 +148,7 @@
         "minor",
         "patch"
       ],
-      "priority": -1
+      "prPriority": -1
     }
   ]
 }
