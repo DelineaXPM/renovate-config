@@ -24,7 +24,7 @@
     "gomodTidy",
     "gomodUpdateImportPaths"
   ],
-  "prCreation": "immediate",
+  "prCreation": "not-pending", // allow checks to run but even if fail it will create them. means you don't have to wait to see if they pass by time PR created
   "onboardingPrTitle": "chore(deps): onboard with renovate",
   "gomod": {
     "enabled": true,
