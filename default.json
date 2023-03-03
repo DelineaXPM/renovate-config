@@ -24,7 +24,7 @@
     "gomodTidy",
     "gomodUpdateImportPaths"
   ],
-  "prCreation": "not-pending", // allow checks to run but even if fail it will create them. means you don't have to wait to see if they pass by time PR created
+  "prCreation": "not-pending",
   "onboardingPrTitle": "chore(deps): onboard with renovate",
   "gomod": {
     "enabled": true,
@@ -107,7 +107,11 @@
         "minor",
         "patch"
       ],
-      "prPriority": -1
+      "prPriority": -1,
+      "prBodyDefinitions": {
+        "Package": "[{{{depName}}}](https://github.com/{{{depName}}})",
+        "Change": "[`{{{displayFrom}}}` -> `{{{displayTo}}}`](https://github.com/{{{depName}}}/compare/{{{displayFrom}}}...{{{displayTo}}})"
+      }
     },
     {
       "matchManagers": [
