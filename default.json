@@ -8,7 +8,9 @@
     "github>aquaproj/aqua-renovate-config#1.2.6",
     "helpers:pinGitHubActionDigests",
     "regexManagers:githubActionsVersions",
-    "regexManagers:dockerfileVersions"
+    "regexManagers:dockerfileVersions",
+    ":enableVulnerabilityAlerts",
+    "group:linters"
   ],
   "labels": ["dependencies"],
   "binarySource": "docker",
@@ -23,6 +25,7 @@
   "rangeStrategy": "pin",
   "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"],
   "prCreation": "not-pending",
+  "prConcurrentLimit": 3,
   "onboardingPrTitle": "chore(deps): onboard with renovate",
   "gomod": {
     "enabled": true,
