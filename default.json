@@ -88,9 +88,10 @@
     },
     {
       "matchPaths": [".github"],
+      "matchManagers": ["github-actions"],
       "groupName": "github-actions",
       "automerge": true,
-      "commitMessageTopic": "🤖 github actions {{depName}}",
+      "commitMessageTopic": "🤖 github actions",
       "matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
       "prPriority": -1,
       "prBodyDefinitions": {
