@@ -40,11 +40,6 @@
     "enabled": true,
     "commitMessageTopic": "⬆️ docker update 🐳 {{depName}}"
   },
-  "vulnerabilityAlerts": {
-    "enabled": true,
-    "prCreation": "immediate",
-    "labels": ["security"]
-  },
   "npm": {
     "commitMessageTopic": "⬆️ npm update {{depName}}",
     "fileMatch": ["(^|/)package.json$"],
@@ -131,5 +126,14 @@
       "matchUpdateTypes": ["minor", "patch"],
       "prPriority": -1
     }
-  ]
+  ],
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "prCreation": "immediate",
+    "labels": ["security"],
+    "minimumReleaseAge": null,
+    "dependencyDashboardApproval": false,
+    "schedule": []
+  }
 }
