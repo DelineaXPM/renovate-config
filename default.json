@@ -66,7 +66,7 @@
       "commitMessageTopic": "☁️ aws-sdk update {{depName}}"
     },
     {
-      "matchPaths": ["magefiles"],
+      "matchFileNames": ["**/magefiles/**", "magefile.go", "mage.go"],
       "groupName": "mage-tooling",
       "commitMessageTopic": "🤖 mage tooling",
       "automerge": true,
@@ -87,7 +87,7 @@
       "prPriority": -1
     },
     {
-      "matchPaths": [".github"],
+      "matchFileNames": ["**/.github/**"],
       "matchManagers": ["github-actions"],
       "groupName": "github-actions",
       "automerge": true,
@@ -118,7 +118,7 @@
       "enabled": false
     },
     {
-      "matchPaths": ["aqua.yaml", "registry.yaml"],
+      "matchFileNames": ["aqua.yaml", "registry.yaml"],
       "groupName": "aqua-packages",
       "automerge": true,
       "commitMessageTopic": "🤖 aqua tooling",
