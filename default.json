@@ -54,6 +54,7 @@
   "major": {
     "dependencyDashboardApproval": true
   },
+  "dependencyDashboardAutoclose": true,
   "minor": {
     "automerge": true
   },
