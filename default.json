@@ -18,6 +18,7 @@
     "group:linters"
   ],
   "labels": ["dependencies"],
+  "dependencyDashboardLabels": ["dependencies"],
   "binarySource": "docker",
   "semanticCommits": "enabled",
   "pruneStaleBranches": true,
