@@ -18,6 +18,7 @@
     "schedule:weekdays"
   ],
   "labels": ["dependencies"],
+  "dependencyDashboardLabels": ["dependencies"],
   "packageRules": [
     {
       "matchPackagePatterns": ["*"],
