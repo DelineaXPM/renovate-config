@@ -36,3 +36,17 @@ actions:
     - trunk-fmt-pre-commit
     - trunk-check-pre-push
     - trunk-upgrade-available
+    - renovate-config-validator
+  definitions:
+    - id: renovate-config-validator
+      description: Validate the config.
+      interactive: false
+      enabled: true
+      # package: github.com/miniscruff/changie@latest
+      triggers:
+        - git_hooks:
+            - pre-commit
+      run: .trunk/renovate-config-validator.sh
+      run_from: root
+      # run: 'renovate-config-validator packagerules-group-always.json packagerules-disable-managers.json packagerules-nuget-group.json security.json common.json default.json'
+      notify_on_error: true
