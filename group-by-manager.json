@@ -10,19 +10,19 @@
     {
       "matchManagers": ["dockerfile", "docker-compose"],
       "groupName": "docker",
-      "commitMessageTopic": "⬆️ docker",
+      "commitMessageTopic": "⬆️ docker {{depName}}",
       "automerge": true
     },
     {
       "matchManagers": ["gomod"],
       "groupName": "gomod",
-      "commitMessageTopic": "⬆️ gomod",
+      "commitMessageTopic": "⬆️ gomod {{depName}}",
       "automerge": true
     },
     {
       "matchManagers": ["nodenv", "npm"],
       "groupName": "npm",
-      "commitMessageTopic": "⬆️ node, npm",
+      "commitMessageTopic": "⬆️ node, npm {{depName}}",
       "automerge": true
     },
     {
