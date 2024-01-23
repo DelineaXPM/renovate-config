@@ -17,6 +17,5 @@
     "semanticCommitType": "security",
     "commitMessageTopic": "🛡️ {{depName}}",
     "prPriority": 100
-  },
-  "recreateClosed": true
+  }
 }
