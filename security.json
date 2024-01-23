@@ -7,15 +7,16 @@
     "github>DelineaXPM/renovate-config:group-by-manager"
   ],
   "dependencyDashboardApproval": true,
-  "dependencyDashboardAutoclose": true,
   "osvVulnerabilityAlerts": true,
   "vulnerabilityAlerts": {
     "enabled": true,
     "prCreation": "immediate",
     "labels": ["security"],
-    "minimumReleaseAge": null,
     "dependencyDashboardApproval": false,
-    "schedule": []
+    "schedule": [],
+    "semanticCommitType": "security",
+    "commitMessageTopic": "🛡️ {{depName}}",
+    "prPriority": 100
   },
   "recreateClosed": true
 }
