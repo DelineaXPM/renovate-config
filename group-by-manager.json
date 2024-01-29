@@ -4,7 +4,7 @@
     {
       "matchManagers": ["regex"],
       "groupName": "regex",
-      "commitMessageTopic": "⬆️ regex matched resources",
+      "commitMessageTopic": "⬆️ regex matched {{depName}}",
       "automerge": true
     },
     {

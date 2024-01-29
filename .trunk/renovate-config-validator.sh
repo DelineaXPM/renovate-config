@@ -3,7 +3,7 @@
 # If npm global install package renovate is not found then install `npm install --global renovate`
 if ! command -v renovate-config-validator &>/dev/null; then
     echo "renovate-config-validator could not be found, installing..."
-    npm install --global renovate-config-validator
+    npm install --global renovate
 fi
 
 # Define an array of JSON files to validate
