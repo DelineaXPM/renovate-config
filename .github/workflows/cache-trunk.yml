@@ -16,9 +16,9 @@ jobs:
 
     steps:
       - name: checkout
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
 
       - name: populate-cache
-        uses: trunk-io/trunk-action@65228585e2c6128315f0f2d5190e2eae7f5c32c6 # v1
+        uses: trunk-io/trunk-action@86b68ffae610a05105e90b1f52ad8c549ef482c2 # v1
         with:
           check-mode: populate_cache_only
