@@ -1,42 +1,56 @@
 version: 0.1
 cli:
-  version: 1.13.0
+  version: 1.22.6
 plugins:
   sources:
     - id: trunk
-      ref: v1.0.0
+      ref: v1.2.1
       uri: https://github.com/trunk-io/plugins
 lint:
   enabled:
-    - renovate@36.40.6
-    - taplo@0.8.1
-    - yamllint@1.32.0
-    - actionlint@1.6.25
+    - checkov@3.2.269
+    - shellcheck@0.10.0
+    - shfmt@3.6.0
+    - trivy@0.56.2
+    - trufflehog@3.82.12
+    - renovate@38.129.2
+    - taplo@0.9.3
+    - yamllint@1.35.1
+    - actionlint@1.7.3
     - git-diff-check
-    - gitleaks@8.17.0
-    - markdownlint@0.35.0
-    - prettier@3.0.1
-  ignore:
-    - linters:
-        - renovate
-      paths:
+    - gitleaks@8.21.1
+    - markdownlint@0.42.0
+    - prettier@3.3.3
+  files:
+    - name: renovate
+      filenames:
         - common.json
+        - default-disabled-managers.json
+        - default-enabled-nonstandard-managers.json
+        - default-manager-config.json
+        - default-schedule.json
         - default.json
-        - group-by-manager.json
+        - packagerules-disable.json
+        - packagerules-default.json
+        - packagerules-force-disable-all-managers.json
+        - packagerules-npm.json
+        - packagerules-pinned.json
+        - renovate.json
         - security.json
 runtimes:
   enabled:
     - python@3.10.8
-    - go@1.19.5
+    - go@1.23.0
     - node@18.12.1
 actions:
   disabled:
     - trunk-announce
+    - renovate-config-validator
+
   enabled:
     - trunk-fmt-pre-commit
     - trunk-check-pre-push
     - trunk-upgrade-available
-    - renovate-config-validator
   definitions:
     - id: renovate-config-validator
       description: Validate the config.

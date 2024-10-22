@@ -1,0 +1,5 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Custom npm exclusions and rules based on feedback.",
+  "packageRules": []
+}

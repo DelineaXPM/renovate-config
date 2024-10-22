@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "### Problematic Versions\n\nPinned as a global rule to block upgrades for any repositories.",
+  "packageRules": [
+    {
+      "description": "Limit the .NET ASP.NET Core to 8.0-alpine, preventing upgrades to 9.0-alpine",
+      "matchPackageNames": ["mcr.microsoft.com/dotnet/aspnet"],
+      "allowedVersions": "8.0-alpine",
+      "matchDepTypes": ["final"],
+      "matchDatasources": ["docker"]
+    }
+  ]
+}

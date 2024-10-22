@@ -1,140 +1,23 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Welcome to the default renovate setup!",
+  "username": "Renovate Bot",
+  "gitAuthor": "bot@renovateapp.com",
   "extends": [
-    "config:base",
-    ":dependencyDashboard",
-    ":semanticPrefixFixDepsChoreOthers",
-    ":ignoreModulesAndTests",
-    "replacements:all",
-    "workarounds:all",
-    "schedule:earlyMondays",
-    ":semanticCommitTypeAll(chore)",
-    "github>whitesource/merge-confidence:beta",
-    "github>aquaproj/aqua-renovate-config#1.2.6",
-    "helpers:pinGitHubActionDigests",
-    "regexManagers:githubActionsVersions",
-    "regexManagers:dockerfileVersions",
-    ":enableVulnerabilityAlerts",
-    "group:linters"
+    "local>DelineaXPM/renovate-config:common",
+    "local>DelineaXPM/renovate-config:default-schedule",
+    "local>DelineaXPM/renovate-config:default-enabled-nonstandard-managers",
+    "local>DelineaXPM/renovate-config:default-manager-config",
+    "local>DelineaXPM/renovate-config:default-disabled-managers",
+    "local>DelineaXPM/renovate-config:packagerules-default",
+    "local>DelineaXPM/renovate-config:packagerules-pinned",
+    "local>DelineaXPM/renovate-config:packagerules-disable",
+    "local>DelineaXPM/renovate-config:security"
   ],
-  "labels": ["dependencies"],
-  "dependencyDashboardLabels": ["dependencies"],
-  "binarySource": "docker",
-  "semanticCommits": "enabled",
-  "pruneStaleBranches": true,
-  "rebaseWhen": "behind-base-branch",
-  "semanticCommitType": "chore",
-  "semanticCommitScope": "deps",
-  "platformAutomerge": true,
-  "automergeStrategy": "squash",
-  "unicodeEmoji": true,
-  "rangeStrategy": "pin",
-  "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"],
-  "prCreation": "not-pending",
-  "prConcurrentLimit": 3,
-  "onboardingPrTitle": "chore(deps): onboard with renovate",
-  "gomod": {
-    "enabled": true,
-    "commitMessageTopic": "⬆️ golang module {{depName}}"
-  },
-  "docker": {
-    "enabled": true,
-    "commitMessageTopic": "⬆️ docker update 🐳 {{depName}}"
-  },
-  "npm": {
-    "commitMessageTopic": "⬆️ npm update {{depName}}",
-    "fileMatch": ["(^|/)package.json$"],
-    "rollbackPrs": true,
-    "versioning": "npm"
-  },
-  "terraform": {
-    "commitMessageTopic": "☁️ terraform update {{depName}}",
-    "enabled": true
-  },
-  "major": {
-    "dependencyDashboardApproval": true
-  },
-  "dependencyDashboardAutoclose": true,
-  "minor": {
-    "automerge": true
-  },
-  "patch": {
-    "automerge": true
-  },
-  "packageRules": [
-    {
-      "matchPackagePatterns": ["aws-sdk"],
-      "groupName": "aws-sdk",
-      "commitMessageTopic": "☁️ aws-sdk update {{depName}}"
-    },
-    {
-      "matchFileNames": ["**/magefiles/**", "magefile.go", "mage.go"],
-      "groupName": "mage-tooling",
-      "commitMessageTopic": "🤖 mage tooling",
-      "automerge": true,
-      "matchUpdateTypes": ["minor", "patch"],
-      "prPriority": -1
-    },
-    {
-      "matchPackagePatterns": [
-        "github.com/magefile/mage",
-        "github.com/sheldonhull/magetools",
-        "github.com/bitfield/script",
-        "github.com/pterm/pterm"
-      ],
-      "groupName": "mage-tooling",
-      "commitMessageTopic": "🤖 mage tooling",
-      "automerge": true,
-      "matchUpdateTypes": ["minor", "patch"],
-      "prPriority": -1
-    },
-    {
-      "matchFileNames": ["**/.github/**"],
-      "matchManagers": ["github-actions"],
-      "groupName": "github-actions",
-      "automerge": true,
-      "commitMessageTopic": "🤖 github actions",
-      "matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
-      "prPriority": -1,
-      "prBodyDefinitions": {
-        "Package": "[{{{depName}}}](https://github.com/{{{depName}}})",
-        "Change": "[`{{{displayFrom}}}` -> `{{{displayTo}}}`](https://github.com/{{{depName}}}/compare/{{{displayFrom}}}...{{{displayTo}}})"
-      },
-      "prBodyColumns": ["Package", "Change", "Type", "Update"]
-    },
-    {
-      "matchManagers": ["npm"],
-      "matchDepTypes": ["devDependencies"],
-      "enabled": true,
-      "groupName": "npm-devdependencies",
-      "stabilityDays": 5
-    },
-    {
-      "matchDatasources": ["npm"],
-      "stabilityDays": 5
-    },
-    {
-      "description": "Opt-out minimum Go version updates: https://github.com/renovatebot/renovate/issues/16715",
-      "matchManagers": ["gomod"],
-      "matchDepTypes": ["golang"],
-      "enabled": false
-    },
-    {
-      "matchFileNames": ["aqua.yaml", "registry.yaml"],
-      "groupName": "aqua-packages",
-      "automerge": true,
-      "commitMessageTopic": "🤖 aqua tooling",
-      "matchUpdateTypes": ["minor", "patch"],
-      "prPriority": -1
-    }
-  ],
-  "osvVulnerabilityAlerts": true,
-  "vulnerabilityAlerts": {
-    "enabled": true,
-    "prCreation": "immediate",
-    "labels": ["security"],
-    "minimumReleaseAge": null,
-    "dependencyDashboardApproval": false,
-    "schedule": []
-  }
+  "ignorePaths": [
+    "**/node_modules/**",
+    "**/bower_components/**",
+    "**/vendor/**",
+    "**/__fixtures__/**"
+  ]
 }

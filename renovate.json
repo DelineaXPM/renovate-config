@@ -1,6 +1,5 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "local>DelineaXPM/renovate-config"
-  ]
+  "description": "This is for renovate managing it's own repo. Use default.json as the actual entry point for a org config.",
+  "extends": ["local>DelineaXPM/renovate-config"]
 }
