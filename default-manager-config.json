@@ -1,0 +1,9 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "### Default Manager Configuration\n\nThis configuration includes custom settings for various managers. Below are the details:\n\n#### npm\n\n- **File Match**: Matches `package.json` files.\n\n- **Rollback PRs**: Enables rollback pull requests.\n\n- **Versioning**: Uses npm versioning.\n\nFor more details, refer to the [Renovate Schema](https://docs.renovatebot.com/renovate-schema.json).",
+  "npm": {
+    "fileMatch": ["(^|/)package.json$"],
+    "rollbackPrs": true,
+    "versioning": "npm"
+  }
+}
