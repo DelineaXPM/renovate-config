@@ -28,6 +28,7 @@
   "binarySource": "docker",
   "branchPrefix": "renovate/",
   "branchTopic": "{{{manager}}}-{{{newMajor}}}{{#if separateMinorPatch}}{{#if isPatch}}.{{{newMinor}}}{{/if}}{{/if}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}",
+  "dependencyDashboard": true,
   "dependencyDashboardAutoclose": false,
   "dependencyDashboardLabels": ["dependencies"],
   "labels": ["dependencies"],
