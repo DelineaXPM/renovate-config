@@ -13,7 +13,6 @@
     ":disablePrControls",
     ":pinVersions",
     ":pinSkipCi",
-    ":disableDependencyDashboard",
     "group:dotNetCore",
     "github>aquaproj/aqua-renovate-config:installer-script#2.3.1(scripts/.*\\.sh)",
     "github>aquaproj/aqua-renovate-config#2.3.1",
