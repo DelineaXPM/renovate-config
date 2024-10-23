@@ -1,8 +1,20 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "This is typically near end of all extends and will forcibly group and override any security related fixes to be seperated regardless of default matching behaviors.",
+  "description": "Preset that inherits all config, but disables auto creation of prs without using dashboard approval to eliminate activity on most non-security updates",
+  "extends": [
+    "local>DelineaXPM/renovate-config:common",
+    "local>DelineaXPM/renovate-config:default-schedule",
+    "local>DelineaXPM/renovate-config:default-enabled-nonstandard-managers",
+    "local>DelineaXPM/renovate-config:default-manager-config",
+    "local>DelineaXPM/renovate-config:default-disabled-managers",
+    "local>DelineaXPM/renovate-config:packagerules-default",
+    "local>DelineaXPM/renovate-config:packagerules-pinned",
+    "local>DelineaXPM/renovate-config:packagerules-disable",
+    "local>DelineaXPM/renovate-config:packagerules-require-dashboard-approval"
+  ],
   "osvVulnerabilityAlerts": true,
   "vulnerabilityAlerts": {
+    "dependencyDashboardApproval": false,
     "groupName": "🛡️ vulnerability [{{{vulnerabilitySeverity}}}]",
     "commitMessageSuffix": "",
     "enabled": true,

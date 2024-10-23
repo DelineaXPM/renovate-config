@@ -1,0 +1,5 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Instead of pull requests being automatically created, someone will have to trigger them from dependencydashboard",
+  "dependencyDashboardApproval": true
+}

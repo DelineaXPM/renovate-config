@@ -55,5 +55,18 @@
   "separateMajorMinor": true,
   "stopUpdatingLabel": "take-a-break-renovate",
   "timezone": "America/Chicago",
-  "unicodeEmoji": true
+  "unicodeEmoji": true,
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "groupName": "🛡️ vulnerability [{{{vulnerabilitySeverity}}}]",
+    "commitMessageSuffix": "",
+    "enabled": true,
+    "semanticCommitType": "security",
+    "prCreation": "immediate",
+    "labels": ["security", "ignore-stale", "dependencies"],
+    "schedule": ["at any time"],
+    "recreateWhen": "always",
+    "branchTopic": "{{{datasource}}}-vulnerability",
+    "commitMessageAction": "🛡️ {{updateType}}"
+  }
 }

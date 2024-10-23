@@ -37,6 +37,7 @@ lint:
         - packagerules-pinned.json
         - renovate.json
         - security.json
+        - packagerules-require-dashboard-approval.json
 runtimes:
   enabled:
     - python@3.10.8
