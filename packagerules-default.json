@@ -1,0 +1,181 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Tweaks to package management to add nice titles, prioritization overrides, group based on prettyDepType and other tweaks for performance or fixes. Automerge set to true so autocomplete is one click and go. Will automerge if project has no reviewer policy in place.",
+  "packageRules": [
+    {
+      "matchPackageNames": ["*"],
+      "description": "Overall grouping on depType to minimize noise",
+      "groupName": "{{manager}}",
+      "commitMessageAction": "📦 {{updateType}}",
+      "commitMessageTopic": "{{prettyDepType}}",
+      "semanticCommitType": "build",
+      "semanticCommitScope": "{{manager}}",
+      "automerge": true
+    },
+    {
+      "extends": ["monorepo:aws-sdk-net"],
+      "description": "AWS SDK for .NET with custom changelog",
+      "changelogUrl": "https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.2024.md",
+      "automerge": true
+    },
+    {
+      "description": "Lower priority updates for mage tooling",
+      "groupName": "mage-tooling",
+      "commitMessageAction": "✨ mage tooling",
+      "prPriority": 2,
+      "schedule": ["after 10pm on monday", "before 3am on monday"],
+      "matchPackageNames": [
+        "/github.com/magefile/mage/",
+        "/github.com/sheldonhull/magetools/",
+        "/github.com/bitfield/script/",
+        "/github.com/pterm/pterm/"
+      ],
+      "automerge": true
+    },
+    {
+      "description": "Lower priority for GitHub Actions updates",
+      "matchManagers": ["github-actions"],
+      "prPriority": -1,
+      "automerge": true
+    },
+    {
+      "description": "NPM devDependencies with a delay",
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["devDependencies"],
+      "minimumReleaseAge": "5 days",
+      "schedule": ["after 10pm on monday", "before 3am on monday"],
+      "automerge": true
+    },
+    {
+      "description": "NPM datasources with a delay",
+      "matchDatasources": ["npm"],
+      "minimumReleaseAge": "5 days",
+      "automerge": true
+    },
+    {
+      "description": "Regex manager updates",
+      "matchManagers": ["regex"],
+      "groupName": "{{manager}}",
+      "commitMessageAction": "🔍 {{updateType}}",
+      "automerge": true
+    },
+    {
+      "description": "Custom regex manager updates",
+      "matchManagers": ["custom.regex"],
+      "groupName": "{{manager}}",
+      "commitMessageAction": "🔍 {{updateType}}",
+      "automerge": true
+    },
+    {
+      "description": "Docker updates",
+      "matchManagers": ["dockerfile", "docker-compose"],
+      "groupName": "docker",
+      "commitMessageAction": "🐳 {{updateType}}",
+      "automerge": true
+    },
+    {
+      "description": "Go module updates",
+      "matchManagers": ["gomod"],
+      "groupName": "{{manager}}",
+      "commitMessageAction": "⚡ {{updateType}}",
+      "automerge": true
+    },
+    {
+      "description": "Node environment and NPM updates",
+      "matchManagers": ["nodenv", "npm"],
+      "groupName": "{{manager}}",
+      "automerge": true
+    },
+    {
+      "description": "Terraform and related updates",
+      "matchManagers": [
+        "terraform",
+        "terraform-version",
+        "terragrunt",
+        "terragrunt-version",
+        "tflint-plugin"
+      ],
+      "groupName": "{{manager}}",
+      "automerge": true
+    },
+    {
+      "description": "GitHub Actions updates",
+      "matchManagers": ["github-actions"],
+      "groupName": "{{manager}}",
+      "automerge": true
+    },
+    {
+      "description": "Azure pipeline templates with high priority",
+      "matchManagers": ["azure-pipelines"],
+      "groupName": "{{depNameSanitized}}",
+      "commitMessageAction": "🚀 {{updateType}}",
+      "prPriority": 9,
+      "automerge": true
+    },
+    {
+      "description": "Major version updates for Azure pipeline tasks",
+      "matchDatasources": ["azure-pipelines-tasks"],
+      "extractVersion": "^(?<version>\\d+)",
+      "groupName": "{{datasource}}",
+      "commitMessageAction": "🚀 {{updateType}}",
+      "prPriority": -1,
+      "automerge": true
+    },
+    {
+      "description": "Minor updates for Aqua registry files",
+      "matchDepNames": [
+        "aquaproj/aqua-registry",
+        "aquaproj/aqua",
+        "aquaproj/aqua-installer",
+        "aquaproj/aqua-renovate-config"
+      ],
+      "groupName": "aqua",
+      "matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
+      "commitMessageAction": "🌊 {{updateType}}",
+      "semanticCommitScope": "aqua-proj",
+      "prPriority": 2,
+      "schedule": ["after 10pm on monday", "before 3am on monday"],
+      "automerge": true
+    },
+    {
+      "description": "Minor updates for Aqua registry files",
+      "matchFileNames": [
+        "aqua.yaml",
+        "registry.yaml",
+        ".aqua/aqua.yaml",
+        ".aqua/registry.yaml"
+      ],
+      "groupName": "aqua",
+      "matchUpdateTypes": ["minor", "patch", "digest", "pin", "pinDigest"],
+      "commitMessageAction": "🌊 {{updateType}}",
+      "semanticCommitScope": "aqua-proj",
+      "prPriority": 2,
+      "schedule": ["after 10pm on monday", "before 3am on monday"],
+      "automerge": true
+    },
+    {
+      "description": "Major updates for Aqua registry files",
+      "matchFileNames": [
+        "aqua.yaml",
+        "registry.yaml",
+        ".aqua/aqua.yaml",
+        ".aqua/registry.yaml"
+      ],
+      "groupName": "aqua {{updateType}}",
+      "matchUpdateTypes": ["major"],
+      "commitMessageAction": "🌊 {{updateType}}",
+      "semanticCommitScope": "aqua-proj",
+      "autoApprove": false,
+      "schedule": ["after 10pm on monday", "before 3am on monday"],
+      "automerge": true
+    },
+    {
+      "description": "Group dependencies from devex/nuke automation",
+      "matchDepTypes": ["nuget"],
+      "matchFileNames": ["**/.nuke/*", "**/build/*"],
+      "groupName": "nuke",
+      "commitMessageAction": "💣 {{updateType}}",
+      "automerge": true
+    }
+  ]
+}

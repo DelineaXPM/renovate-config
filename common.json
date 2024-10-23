@@ -1,27 +1,59 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    ":dependencyDashboard",
-    ":semanticPrefixFixDepsChoreOthers",
+    ":semanticCommits",
+    ":semanticCommitTypeAll(build)",
     ":ignoreModulesAndTests",
     "replacements:all",
     "workarounds:all",
-    ":semanticCommitTypeAll(chore)",
-    "github>whitesource/merge-confidence:beta",
-    "github>aquaproj/aqua-renovate-config#1.2.6",
     "helpers:pinGitHubActionDigests",
     "regexManagers:githubActionsVersions",
     "regexManagers:dockerfileVersions",
-    ":enableVulnerabilityAlerts",
-    "group:linters"
+    "group:linters",
+    ":disablePrControls",
+    ":pinVersions",
+    ":pinSkipCi",
+    ":disableDependencyDashboard",
+    "group:dotNetCore",
+    "github>aquaproj/aqua-renovate-config:installer-script#2.3.1(scripts/.*\\.sh)",
+    "github>aquaproj/aqua-renovate-config#2.3.1",
+    "github>aquaproj/aqua-renovate-config:aqua-renovate-config#2.3.1(common\\.json)",
+    "security:openssf-scorecard",
+    ":renovatePrefix",
+    "mergeConfidence:all-badges"
   ],
+  "autoApprove": true,
+  "automerge": true,
+  "automergeStrategy": "squash",
+  "automergeType": "pr",
   "binarySource": "docker",
-  "platformAutomerge": true,
-  "pruneStaleBranches": true,
-  "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"],
-  "unicodeEmoji": true,
-  "rangeStrategy": "pin",
-  "onboardingPrTitle": "chore(deps): onboard with renovate",
+  "branchPrefix": "renovate/",
+  "branchTopic": "{{{manager}}}-{{{newMajor}}}{{#if separateMinorPatch}}{{#if isPatch}}.{{{newMinor}}}{{/if}}{{/if}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}",
+  "dependencyDashboardAutoclose": false,
+  "dependencyDashboardLabels": ["dependencies"],
   "labels": ["dependencies"],
-  "dependencyDashboardLabels": ["dependencies"]
+  "major": {
+    "automerge": false,
+    "dependencyDashboardApproval": true
+  },
+  "minor": {
+    "automerge": true
+  },
+  "onboardingPrTitle": "chore(deps): onboard with renovate",
+  "patch": {
+    "automerge": true
+  },
+  "platformAutomerge": true,
+  "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"],
+  "prConcurrentLimit": 0,
+  "prCreation": "immediate",
+  "prHourlyLimit": 0,
+  "pruneStaleBranches": true,
+  "rangeStrategy": "pin",
+  "rebaseWhen": "behind-base-branch",
+  "semanticCommits": "enabled",
+  "separateMajorMinor": true,
+  "stopUpdatingLabel": "take-a-break-renovate",
+  "timezone": "America/Chicago",
+  "unicodeEmoji": true
 }
