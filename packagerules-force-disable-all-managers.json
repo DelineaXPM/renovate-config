@@ -1,0 +1,11 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "🚨 **Warning:** Disables all package patterns. Use this to disable everything, then selectively re-enable.",
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["*"],
+      "enabled": false,
+      "description": "Disables all package patterns."
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "### Default Schedule\n\nSets up a default schedule for Renovate to run during specific times. Security or override updates are generated outside of the evening hours. Note: This is relative to the CST timezone.\n\n- **Schedule**: \n  - After 10pm\n  - Before 3am\n\nFor more details, refer to the [Renovate Schema](https://docs.renovatebot.com/renovate-schema.json).",
+  "schedule": ["after 10pm", "before 3am"]
+}

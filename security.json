@@ -1,21 +1,17 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base",
-    "schedule:weekdays",
-    "github>DelineaXPM/renovate-config:common",
-    "github>DelineaXPM/renovate-config:group-by-manager"
-  ],
-  "dependencyDashboardApproval": true,
+  "description": "This is typically near end of all extends and will forcibly group and override any security related fixes to be seperated regardless of default matching behaviors.",
   "osvVulnerabilityAlerts": true,
   "vulnerabilityAlerts": {
+    "groupName": "🛡️ vulnerability [{{{vulnerabilitySeverity}}}]",
+    "commitMessageSuffix": "",
     "enabled": true,
-    "prCreation": "immediate",
-    "labels": ["security"],
-    "dependencyDashboardApproval": false,
-    "schedule": [],
     "semanticCommitType": "security",
-    "commitMessageTopic": "🛡️ {{depName}}",
-    "prPriority": 100
+    "prCreation": "immediate",
+    "labels": ["security", "ignore-stale", "dependencies"],
+    "schedule": ["at any time"],
+    "recreateWhen": "always",
+    "branchTopic": "{{{datasource}}}-vulnerability",
+    "commitMessageAction": "🛡️ {{updateType}}"
   }
 }
