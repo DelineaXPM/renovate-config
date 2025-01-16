@@ -2,7 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Welcome to the default renovate setup!",
   "username": "Renovate Bot",
-  "gitAuthor": "bot@renovateapp.com",
+  "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
   "extends": [
     "local>DelineaXPM/renovate-config:common",
     "local>DelineaXPM/renovate-config:default-schedule",
