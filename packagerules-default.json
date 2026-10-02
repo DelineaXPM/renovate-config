@@ -170,9 +170,9 @@
       "automerge": true
     },
     {
-      "description": "Internal DelineaXPM reusable workflows and actions track refs (tags/branches); skip SHA digest pinning",
+      "description": "Internal delineaXPM reusable workflows and actions track refs (tags/branches); skip SHA digest pinning",
       "matchManagers": ["github-actions"],
-      "matchPackageNames": ["DelineaXPM/**"],
+      "matchPackageNames": ["delineaXPM/**"],
       "pinDigests": false
     },
     {
