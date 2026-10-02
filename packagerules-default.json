@@ -170,6 +170,12 @@
       "automerge": true
     },
     {
+      "description": "Internal delineaXPM reusable workflows and actions track refs (tags/branches); skip SHA digest pinning",
+      "matchManagers": ["github-actions"],
+      "matchPackageNames": ["delineaXPM/**"],
+      "pinDigests": false
+    },
+    {
       "description": "Group dependencies from devex/nuke automation",
       "matchDepTypes": ["nuget"],
       "matchFileNames": ["**/.nuke/*", "**/build/*"],
